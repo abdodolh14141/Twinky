@@ -1,0 +1,72 @@
+.ContainerIcon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 19px;
+}
+
+.ContainerIcon li {
+  margin: 0 10px;
+}
+
+.navbar .logo {
+  color: maroon; /* White */
+  font-size: 1.8rem; /* Slightly larger font for the logo */
+  margin: 0 auto;
+  font-weight: 800;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem; /* Space between the navigation links */
+}
+
+.navbar .icon-link:hover {
+  color: green;
+  transform: scale(1.3);
+}
+
+.navbar .nav-links li {
+  margin-right: 0;
+}
+
+.navbar {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: rgba(233, 135, 135, 0.5); /* Light Sky Blue */
+  border-radius: 1rem;
+}
+
+.btnLogout {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 10px;
+  border: none;
+  border-radius: 1rem;
+  background-color: rgb(250, 116, 116);
+}
+
+.navbar:hover {
+  background-color: tomato;
+}
+
+.iconUser {
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin: 1rem auto;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 5px;
+  background-color: chartreuse;
+  color: red;
+}
+
+ul {
+  list-style-type: none;
+}

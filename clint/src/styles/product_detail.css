@@ -1,0 +1,61 @@
+.product-details {
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  text-align: center;
+  padding: 20px;
+  width: 70%;
+  background-color: rgba(243, 243, 243, 0.7);
+  margin: 20px auto;
+  border-radius: 1rem;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease-in-out;
+}
+
+.container-shop .relatedProduct {
+  width: 400px;
+}
+
+/* Added a hover effect for better interactivity */
+.product-details:hover {
+  transform: scale(1.02);
+}
+
+.textProduct {
+  text-align: center;
+  padding: 5px;
+  font-size: 1.5rem;
+  margin-left: 20px; /* Add margin to create space between image and text */
+}
+
+.textProduct h1 {
+  font-size: 2.5rem;
+}
+
+.textProduct h2 {
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+.images {
+  width: 50%; /* Adjust the width of the image section */
+}
+
+.images img {
+  width: 100%;
+  padding: 5px;
+  border-radius: 1rem;
+  margin-right: 20px; /* Add margin to create space between image and text */
+}
+
+button {
+  font-size: 1.2rem;
+  border: none;
+  width: 80%;
+  margin: 1rem auto;
+}
+
+img {
+  width: auto;
+  height: auto;
+}

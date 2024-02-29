@@ -1,0 +1,46 @@
+[
+  {
+    "id": 17,
+    "text": "تورتة جينواز بالشوكولاتة",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0000030_-_550.png",
+    "par": "كيك جينواز من توينكي مكون من كيك الشوكولاتة الهش ومغطى بالشوكولاتة اللذيذة ومزينة بقطع الشوكولاتة من الأعلى وألواح الشوكولاتة بالبندق",
+    "price": 515
+  },
+  {
+    "id": 18,
+    "text": "تورتة سويس رول شوكولاته",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0001211_-_550.png",
+    "price": 315
+  },
+  {
+    "id": 19,
+    "text": "تورتة شاتوه شوكولاتة",
+    "imgSrc": "https://elabd-ecommerce-production.azurewebsites.net/images/thumbs/0001142_-_550.png",
+    "par": "كيك الشوكولاتة الهش من توينكي محشو بالكريمة الطازجة ومغطاة بطبقة من الشكولاتة ومزينة بالإم أند إمز وكرات الشوكولاتة من الأعلى ومحاطة بويفر الشوكولاتة",
+    "price": 480
+  },
+  {
+    "id": 20,
+    "text": "تورتة أيس كريم زبادي توت",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0001019_-_550.png",
+    "price": 320
+  },
+  {
+    "id": 21,
+    "text": "تورتة ايس كريم اللوتس",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0001020_-_550.png",
+    "price": 310
+  },
+  {
+    "id": 22,
+    "text": "تورتة ايس كريم فواكه صغير",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0001011_-_550.png",
+    "price": 240
+  },
+  {
+    "id": 23,
+    "text": "تورتة ايس كريم شوكولاته كبير",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0001017_-_550.png",
+    "price": 340
+  }
+]

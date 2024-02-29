@@ -1,0 +1,67 @@
+[
+  {
+    "id": 24,
+    "text": "إسبريسو دبل",
+    "imgSrc": "https://elabd-ecommerce-production.azurewebsites.net/images/thumbs/0000707_-_550.png",
+    "price": 26
+  },
+  {
+    "id": 25,
+    "text": "امريكان كوفى - صغير",
+    "imgSrc": "https://elabd-ecommerce-production.azurewebsites.net/images/thumbs/0000464_-_550.png",
+    "par": ".قهوة توينكي الأمريكية مشروب من القهوة يتم تحضيره من الإسبريسو و الماء الساخن",
+    "price": 30
+  },
+  {
+    "id": 26,
+    "text": "امريكان كوفى - كبير",
+    "imgSrc": "https://elabd-ecommerce-production.azurewebsites.net/images/thumbs/0000464_-_550.png",
+    "par": ".قهوة توينكي الأمريكية مشروب من القهوة يتم تحضيره من الإسبريسو و الماء الساخن",
+    "price": 30
+  },
+  {
+    "id": 27,
+    "text": "ابل سيدار",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0000463_-_550.png",
+    "par": "استمتع بسيدار التفاح من توينكي المكون من مزيج خاص من التفاح الطازج والقرفه الرائعة",
+    "price": 30
+  },
+  {
+    "id": 28,
+    "text": "إسبريسو سنجل",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0000708_-_550.png",
+    "price": 20
+  },
+  {
+    "id": 29,
+    "text": "دبل اسبرسو فرابيه صغير",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0000785_-_550.png",
+    "price": 55
+  },
+  {
+    "id": 30,
+    "text": "ايس شوكولاتة بندق وسط",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0000598_-_550.png",
+    "price": 65
+  },
+  {
+    "id": 31,
+    "text": "فراولة سموزى وسط",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0000496_-_550.png",
+    "price": 65
+  },
+  {
+    "id": 32,
+    "text": "فسدق فرابيه وسط",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0000498_-_550.png",
+    "par": "استمتع بمشروب فسدق فرابيه من توينكي والمثلج المكون من الماء والإسبريسو والسكر والحليب والثلج",
+    "price": 75
+  },
+  {
+    "id": 33,
+    "text": "شوكلت فرابيه وسط",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0000494_-_550.png",
+    "par": "استمتع بمشروب الفرابيه توينكي الشوكولاتة المثلجة المكون من الإسبريسو والحليب والثلج ، مزيج خاص من صوص الشوكولاتة",
+    "price": 55
+  }
+]

@@ -1,0 +1,36 @@
+.container-shop {
+  border: 2px solid black;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 1rem;
+}
+
+.card {
+  display: flex;
+  padding: 1rem 5px;
+}
+
+.purchases {
+  background-color: aqua;
+  width: 600px;
+  display: flex;
+  margin: 1rem;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.purchases button,
+img,
+p,
+span {
+  padding: 5px;
+  margin: 5px;
+  font-size: 1.2rem;
+}
+
+.product-image,
+.product-text,
+.spanProduct {
+  font-size: 1.5rem;
+}

@@ -1,0 +1,36 @@
+.containerUser {
+  background-color: rgba(233, 233, 238, 0.7);
+  display: flex;
+  justify-content: center;
+  border: 2px solid black;
+  margin: 20rem auto;
+  border-radius: 1rem;
+  width: 60%;
+  height: 180px;
+  text-align: center;
+  box-shadow: 5px 5px 5px 5px red;
+}
+
+.containerUser:hover {
+  background-color: rgb(72, 66, 153);
+  transform: scale(1.2);
+}
+
+.containerUser button {
+  width: 50%;
+  font-size: 1.5rem;
+  padding: 5px;
+  margin: 5px;
+}
+
+.containerError {
+  background-color: rgba(233, 233, 238, 0.7);
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 1rem;
+  width: 500px;
+  height: 180px;
+  margin: 18rem auto;
+  text-align: center;
+  box-shadow: 5px 5px 5px 5px red;
+}
