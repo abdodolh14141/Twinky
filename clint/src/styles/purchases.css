@@ -1,34 +1,80 @@
-.container-shop {
+/* Container styles */
+.container-purchases {
   border: 2px solid black;
   padding: 10px;
   margin: 10px;
   border-radius: 1rem;
 }
 
-.card {
-  display: flex;
-  padding: 1rem 5px;
+/* Heading styles */
+.container-purchases h1 {
+  text-align: center;
+  font-size: 2.3rem;
+  margin-bottom: 1rem; /* Added margin for spacing */
 }
 
+/* Row styles */
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  gap: 20px;
+  padding: 20px;
+  justify-content: space-around; /* Distributes items evenly */
+  transition: all 0.2s ease-in-out; /* Smooth transitions */
+}
+
+/* Purchases block */
 .purchases {
   background-color: aqua;
-  width: 600px;
   display: flex;
-  margin: 1rem;
-  padding: 10px;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; /* Aligns items vertically */
+  justify-content: center; /* Centers items vertically */
+  align-items: center; /* Centers items horizontally */
+  margin: 10px;
+  padding: 15px;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  transition: all 0.2s ease-in-out; /* Smooth transitions */
 }
 
+.purchases:hover {
+  background-color: lightblue; /* Add hover effect */
+}
+
+/* Error message */
+.errorProduct {
+  text-align: center;
+  font-size: 2.2rem;
+  padding: 1rem;
+  margin: 1.5rem;
+  background-color: lightcoral; /* Adds background color for errors */
+  border-radius: 0.5rem; /* Rounded corners */
+}
+
+/* Element styling within purchases */
 .purchases button,
-img,
-p,
-span {
+.purchases img,
+.purchases p,
+.purchases span {
   padding: 5px;
   margin: 5px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
+.purchases button {
+  background-color: black; /* Default button color */
+  width: 100%;
+  border: none; /* Remove default border */
+  cursor: pointer; /* Changes cursor to indicate clickable */
+  transition: background-color 0.2s ease-in-out; /* Smooth transitions */
+}
+
+.purchases button:hover {
+  background-color: blueviolet; /* Hover effect for buttons */
+}
+
+/* Additional product-related styles */
 .product-image,
 .product-text,
 .spanProduct {

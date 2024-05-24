@@ -13,7 +13,7 @@ export const Shop = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/shopping");
+        const response = await axios.get("/api/shopping");
         setData(response.data);
       } catch (error) {
         setError("Error fetching data. Please try again.");
@@ -41,7 +41,7 @@ export const Shop = () => {
             <div className="product-card">
               <img src={imgSrc} alt={text} className="product-image" />
               <p className="product-text">{text}</p>
-              <span>Price: {price}</span>
+              <span>Price: {price}$</span>
             </div>
           </Link>
         ))}

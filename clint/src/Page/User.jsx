@@ -15,7 +15,7 @@ export const User = () => {
   useEffect(() => {
     async function fetchUser() {
       try {
-        const resData = await axios.get("/user");
+        const resData = await axios.get("/api/user");
 
         if (resData.status === 200) {
           const { Name, Email } = resData.data.dataFind;
@@ -54,12 +54,12 @@ export const User = () => {
     <div className="containerUser">
       <div>
         <h2>
-          UserName: <em>{data.name}</em>
+          UserName = <em>{data.name}</em>
         </h2>
         <h2>
-          Email: <em>{data.email}</em>
+          Email = <em>{data.email}</em>
         </h2>
-        <Link to="/userEdit">
+        <Link to="/api/userEdit">
           <button>Edit</button>
         </Link>
       </div>

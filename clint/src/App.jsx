@@ -15,6 +15,7 @@ import { Specialty } from "./Page/Specialty/Specialty_1";
 import { Specialty_1 } from "./Page/Specialty/Specialty_2";
 import { Specialty_2 } from "./Page/Specialty/Specialty_3";
 import { Specialty_3 } from "./Page/Specialty/Specialty_4";
+import { About } from "./Page/About";
 import { EditUser } from "./Page/EditUser";
 
 // Set axios defaults outside the component
@@ -32,16 +33,17 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/shopping" element={<Shop />} />
-        <Route path="/user" element={<User />} />
+        <Route path="/api/login" element={<Login />} />
+        <Route path="/api/register" element={<Register />} />
+        <Route path="/api/shopping" element={<Shop />} />
+        <Route path="/api/user" element={<User />} />
         <Route path="/product/:productId" element={<ProductDetails />} />
         <Route path="/api/1" element={<Specialty />} />
         <Route path="/api/2" element={<Specialty_1 />} />
         <Route path="/api/3" element={<Specialty_2 />} />
         <Route path="/api/4" element={<Specialty_3 />} />
-        <Route path="/userEdit" element={<EditUser />} />
+        <Route path="/api/userEdit" element={<EditUser />} />
+        <Route path="/api/about" element={<About />} />
         <Route path="/api/buy/product" element={<Purchases />} />
       </Routes>
       <NavbarLast />

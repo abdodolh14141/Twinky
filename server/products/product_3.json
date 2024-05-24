@@ -1,46 +1,79 @@
 [
   {
-    "id": 17,
+    "id": 29,
     "text": "تورتة جينواز بالشوكولاتة",
     "imgSrc": "https://elabdfoods.com/images/thumbs/0000030_-_550.png",
     "par": "كيك جينواز من توينكي مكون من كيك الشوكولاتة الهش ومغطى بالشوكولاتة اللذيذة ومزينة بقطع الشوكولاتة من الأعلى وألواح الشوكولاتة بالبندق",
     "price": 515
   },
   {
-    "id": 18,
+    "id": 30,
     "text": "تورتة سويس رول شوكولاته",
     "imgSrc": "https://elabdfoods.com/images/thumbs/0001211_-_550.png",
     "price": 315
   },
   {
-    "id": 19,
+    "id": 31,
     "text": "تورتة شاتوه شوكولاتة",
     "imgSrc": "https://elabd-ecommerce-production.azurewebsites.net/images/thumbs/0001142_-_550.png",
     "par": "كيك الشوكولاتة الهش من توينكي محشو بالكريمة الطازجة ومغطاة بطبقة من الشكولاتة ومزينة بالإم أند إمز وكرات الشوكولاتة من الأعلى ومحاطة بويفر الشوكولاتة",
     "price": 480
   },
   {
-    "id": 20,
+    "id": 32,
     "text": "تورتة أيس كريم زبادي توت",
     "imgSrc": "https://elabdfoods.com/images/thumbs/0001019_-_550.png",
     "price": 320
   },
   {
-    "id": 21,
+    "id": 34,
     "text": "تورتة ايس كريم اللوتس",
     "imgSrc": "https://elabdfoods.com/images/thumbs/0001020_-_550.png",
     "price": 310
   },
   {
-    "id": 22,
+    "id": 35,
     "text": "تورتة ايس كريم فواكه صغير",
     "imgSrc": "https://elabdfoods.com/images/thumbs/0001011_-_550.png",
     "price": 240
   },
   {
-    "id": 23,
+    "id": 36,
     "text": "تورتة ايس كريم شوكولاته كبير",
     "imgSrc": "https://elabdfoods.com/images/thumbs/0001017_-_550.png",
     "price": 340
+  },
+  {
+    "id": 37,
+    "text": "تشيز كيك لوتس",
+    "imgSrc": "https://elabd-ecommerce-production.azurewebsites.net/images/thumbs/0000606_-_550.png",
+    "par": "واحد من أشهر النكهات في عالم الحلويات! التشيز كيك لوتس من القطع الأكثر مبيعًا لطعمها الرائع",
+    "price": 75
+  },
+  {
+    "id": 38,
+    "text": "ايس كريم كاساتا شوكولاتة صغير",
+    "imgSrc": "https://elabd-ecommerce-production.azurewebsites.net/images/thumbs/0001007_-_550.png",
+    "price": 170
+  },
+  {
+    "id": 39,
+    "text": "تري ليشي كراميل",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0001223_-_550.png",
+    "price": 55
+  },
+  {
+    "id": 40,
+    "text": "بروفيترول",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0001017_-_550.png",
+    "par": "بروفيترول العبد، بمكوناته الخفيفة من الدقيق والسمن والسكر والفانيليا والكاكاو يمنح العجينة قوام كريمي مميز لا يقاوم",
+    "price": 70
+  },
+  {
+    "id": 41,
+    "text": "تورته فورسيزون 30×30",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0000088_-3030_550.png",
+    "par": "طعم لكل موسم! كيك الفور سيزونز من العبد فيه ٤ نكهات: البلاك فورست و الفانيليا والفواكه والكراميل. مناسبة جدا للأعداد الكبيرة والمناسبات",
+    "price": 685
   }
 ]

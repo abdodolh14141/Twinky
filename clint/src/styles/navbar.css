@@ -3,12 +3,13 @@
   justify-content: space-between;
   align-items: center;
   list-style-type: none;
-  padding: 0;
-  margin-top: 19px;
+  margin: 19px 2px;
+  padding: 8px;
+  font-size: 1.2rem;
 }
 
 .ContainerIcon li {
-  margin: 0 10px;
+  margin: 0 8px;
 }
 
 .navbar .logo {
@@ -22,6 +23,8 @@
   list-style: none;
   display: flex;
   gap: 1.5rem; /* Space between the navigation links */
+  font-size: 1.3rem;
+  margin: 1px;
 }
 
 .navbar .icon-link:hover {
@@ -44,9 +47,9 @@
 }
 
 .btnLogout {
-  width: 100%;
   font-size: 1.2rem;
   padding: 10px;
+  margin: 0.8rem auto;
   border: none;
   border-radius: 1rem;
   background-color: rgb(250, 116, 116);
@@ -58,8 +61,8 @@
 
 .iconUser {
   text-decoration: none;
-  font-size: 1.5rem;
-  margin: 1rem auto;
+  font-size: 1.2rem;
+  margin: 1.1rem auto;
   border: 1px solid black;
   border-radius: 1rem;
   padding: 5px;

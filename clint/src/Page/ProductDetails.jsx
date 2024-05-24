@@ -15,7 +15,7 @@ export const ProductDetails = () => {
       try {
         const [productResponse, shoppingResponse] = await Promise.all([
           axios.get(`/product/${productId}`),
-          axios.get("/shopping"),
+          axios.get("/api/shopping"),
         ]);
 
         if (productResponse.status === 200 && shoppingResponse.status === 200) {
@@ -49,7 +49,7 @@ export const ProductDetails = () => {
       });
 
       if (saveProductResponse.data.success) {
-        const buyResponse = await axios.put("/buy", product);
+        const buyResponse = await axios.put("/api/buy", product);
         if (buyResponse.data.success) {
           toast.success(buyResponse.data.message);
         } else {
@@ -60,7 +60,7 @@ export const ProductDetails = () => {
       }
     } catch (error) {
       console.error("Error purchasing:", error);
-      toast.error("Error purchasing, please try again");
+      toast.error("Error purchasing, please try Login In");
     }
   };
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import "../styles/purchases.css";
@@ -8,6 +8,7 @@ export const Purchases = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const nav = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +23,6 @@ export const Purchases = () => {
         setLoading(false);
       }
     };
-
     fetchData();
   }, []);
 
@@ -36,7 +36,7 @@ export const Purchases = () => {
         toast.error(resDelete.data.message);
       }
     } catch (error) {
-      console.log(error);
+      console.error("Error occurred while deleting the product:", error);
       toast.error("Error occurred while deleting the product.");
     }
   };
@@ -54,8 +54,8 @@ export const Purchases = () => {
         toast.error(resAdd.data.message || "Error adding purchase");
       }
     } catch (error) {
-      console.log("Error Server: " + error);
-      toast.error("Error adding purchase");
+      console.error("Error occurred while adding the purchase:", error);
+      toast.error("Error occurred while adding the purchase.");
     }
   };
 
@@ -63,21 +63,34 @@ export const Purchases = () => {
     return <h1>Loading...</h1>;
   }
 
+  if (!data || data.length === 0) {
+    return (
+      <h1 className="errorProduct">
+        No Purchases Found. Please Buy Something.
+      </h1>
+    );
+  }
+
   if (error) {
-    return <h1>Error. Please try again later.</h1>;
+    return (
+      <h1>
+        <em>
+          Error occurred while fetching data. Please try again or buy something.
+        </em>
+      </h1>
+    );
   }
 
   return (
-    <div className="container-shop">
-      <div className="card">
+    <div className="container-purchases">
+      <h1>مشتريات</h1>
+      <div className="row">
         {data.map(({ Id, ImgSrc, Text, Price, Count }) => (
           <div key={Id} className="product-card purchases">
             <img src={ImgSrc} alt={Text} className="product-image" />
             <p>Count: {Count}</p>
             <span className="spanProduct">Price: {Price}</span>
-            <button>
-              <Link to={`/product/${Id}`}>Show</Link>
-            </button>
+            <button onClick={() => nav(`/product/${Id}`)}>Show</button>
 
             <button onClick={() => deletePurchases(Id)}>Delete</button>
             <button onClick={() => addPurchases(Id)}>Add</button>

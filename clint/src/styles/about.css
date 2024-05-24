@@ -1,0 +1,104 @@
+.container_about {
+  width: 100%;
+  margin: auto;
+  padding: 10px;
+  margin: 10px auto;
+}
+
+.cardAbout button:hover {
+  transform: scale(1);
+}
+
+article {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 800px; /* Constrain the maximum width for readability */
+  background-color: transparent; /* Use white background for main content */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.cardAbout {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  padding: 15px; /* Add padding to the card */
+  margin: 5px;
+  width: 100%;
+  background-color: rgb(164, 160, 189);
+}
+
+.text-content {
+  margin-bottom: 20px; /* Space between text and report section */
+}
+
+.text-content {
+  color: whitesmoke; /* Dark color for headings */
+  font-size: 1.8em; /* Larger font size for emphasis */
+}
+
+.text-content p {
+  color: white; /* Slightly lighter color for text */
+  line-height: 1.6; /* Improved readability */
+}
+
+.text-content a {
+  text-decoration: none; /* No underline */
+  color: #1e90ff; /* Bright blue for links */
+  font-weight: bold;
+  font-size: 1.5rem;
+  background-color: chartreuse;
+  border-radius: 1rem;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.text-content a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.report {
+  border-top: 1px solid #ddd; /* Separator line between sections */
+  margin: 10px;
+  padding: 10px;
+}
+
+.report h1 {
+  font-size: 1.8em; /* Heading for report section */
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+}
+
+.report textarea {
+  width: 100%; /* Full width for textarea */
+  padding: 5px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: "Arial", sans-serif;
+}
+
+.report button {
+  background-color: #1e90ff; /* Bright blue background */
+  color: white; /* White text */
+  padding: 10px 20px; /* Padding for button */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.report button:hover {
+  background-color: #0066cc; /* Darker blue on hover */
+}
+
+@media (max-width: 600px) {
+  /* Responsive design for smaller screens */
+  .card {
+    flex-direction: column; /* Ensure elements stack vertically */
+  }
+
+  textarea {
+    rows: 5; /* Reduce rows for smaller screens */
+  }
+}

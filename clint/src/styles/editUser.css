@@ -1,18 +1,46 @@
 /* editUser.css */
 
 .containerUpdate {
-  width: 70%;
-  margin: 18rem auto;
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  margin: 12rem auto;
+  width: 40%;
   background-color: rgba(233, 233, 238, 0.7);
-  padding: 20px;
+  padding: 15px;
   border: 2px solid #ccc;
   border-radius: 8px;
+}
+
+.formData {
+  width: 80%;
+  padding: 5px;
+  margin: 3px;
 }
 
 .containerUpdate label {
   display: block;
   margin-bottom: 8px;
   font-size: 1.2rem;
+}
+
+.errorMsg {
+  display: inline-block; /* Default display for centering text */
+  text-align: center; /* Centers text within the element */
+  padding: 1rem; /* Padding for inner spacing */
+  border: 1px solid red; /* Adding border to visually differentiate the error message */
+  background-color: lightpink; /* Background color for error indication */
+  font-size: 1.5rem; /* Adjust font size as needed */
+  border-radius: 0.5rem; /* Rounded corners for visual aesthetics */
+}
+
+.errorMsg p {
+  font-size: 1.5rem;
+  padding: 5px;
+  margin: 5px;
+}
+.errorMsg button {
+  font-size: 2rem;
+  width: 50%;
 }
 
 .containerUpdate input {
@@ -36,7 +64,9 @@
 }
 
 .containerUpdate button:hover {
-  background-color: #45a049;
+  background-color: black;
+  color: whitesmoke;
+  transform: scale(1.1);
 }
 
 /* Additional styling for error message */

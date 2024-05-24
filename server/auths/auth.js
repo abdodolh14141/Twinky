@@ -1,5 +1,6 @@
 import User from "../models/User.js";
 import ProductBuy from "../models/ProductBuy.js";
+import ReportModel from "../models/Report.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import data_1 from "../products/product_1.json" assert { type: "json" };
@@ -23,19 +24,10 @@ export const products = [
 ];
 
 export const authRegister = async (req, res) => {
-  const { name, email, password } = req.body;
-
-  // Validate user input
-  if (!email || !name || !password || password.length < 6) {
-    return res.status(400).json({
-      success: false,
-      message: "Invalid registration data. Please provide valid information.",
-    });
-  }
+  const { Name: UserName, Email: EmailUser, Age: AgeUser, Password } = req.body;
 
   try {
-    // Check if the email is already registered
-    const existingUserByEmail = await User.findOne({ Email: email });
+    const existingUserByEmail = await User.findOne({ Email: EmailUser });
     if (existingUserByEmail) {
       return res.status(400).json({
         success: false,
@@ -43,38 +35,33 @@ export const authRegister = async (req, res) => {
       });
     }
 
-    // Check if the name is already registered
-    const existingUserByName = await User.findOne({ Name: name });
-    if (existingUserByName) {
-      return res.status(400).json({
-        success: false,
-        message:
-          "This username is already taken. Please choose a different one.",
-      });
-    }
+    const hashedPassword = await bcrypt.hash(Password, 10);
 
-    // Hash the password before saving it to the database
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Create a new user instance
     const newUser = new User({
-      Name: name,
-      Email: email,
-      Password: hashedPassword, // Save the hashed password
-      Price: 5000, // Assuming Price is a default value or initial balance
+      Name: UserName,
+      Email: EmailUser,
+      Age: AgeUser,
+      Password: hashedPassword,
+      Price: 5000,
     });
 
-    // Save the user to the database
     await newUser.save();
 
-    return res
-      .status(201)
-      .json({ success: true, message: "Registration successful" });
+    return res.status(201).json({
+      success: true,
+      message: "Registration successful. You can now log in.",
+    });
   } catch (error) {
-    console.error("Error registering user:", error);
+    console.error("Registration error:", error);
+    if (error.code === 11000 && error.keyPattern && error.keyPattern.Email) {
+      return res.status(400).json({
+        success: false,
+        message: "This email is already registered. Please try logging in.",
+      });
+    }
     return res.status(500).json({
       success: false,
-      message: "Error Server Please Try Agian",
+      message: "An error occurred during registration. Please try again later.",
     });
   }
 };
@@ -84,18 +71,21 @@ export const authLogin = async (req, res) => {
 
   try {
     if (email && password) {
-      const checkEmail = await User.findOne({ Email: email });
+      const checkUser = await User.findOne({ Email: email });
 
-      if (checkEmail) {
-        const passwordMatch = bcrypt.compare(password, checkEmail.Password); // Await here
+      if (checkUser) {
+        const passwordMatch = await bcrypt.compare(
+          password,
+          checkUser.Password
+        );
 
         if (passwordMatch) {
           const jwtToken = jwt.sign(
             {
-              id: checkEmail._id,
-              email: checkEmail.Email,
-              name: checkEmail.Name,
-              price: checkEmail.Price,
+              id: checkUser._id,
+              email: checkUser.Email,
+              name: checkUser.Name,
+              price: checkUser.Price,
             },
             process.env.JWT_SECRET,
             {
@@ -103,10 +93,9 @@ export const authLogin = async (req, res) => {
             }
           );
 
-          // Set cookie after successful login
-          res.cookie("token", jwtToken).status(200).json({
+          return res.cookie("token", jwtToken).status(200).json({
             success: true,
-            message: "Login Success",
+            message: "Login successful",
           });
         } else {
           return res.status(401).json({
@@ -181,40 +170,50 @@ export const authPurchaseAdd = async (req, res) => {
     const { id: idUser } = req.dataAuto;
     const { id: idProduct } = req.params;
 
-    // Increment purchase count
-    const resPurchase = await ProductBuy.findOneAndUpdate(
-      { Id: idProduct },
-      { $inc: { Count: 1 } },
-      { new: true }
-    );
+    // Fetch user and product from the database
+    const checkUser = await User.findOne({ _id: idUser });
+    const checkProduct = await ProductBuy.findOne({ Id: idProduct });
 
-    if (!resPurchase) {
+    // Check if user and product exist
+    if (!checkUser || !checkProduct) {
       return res
         .status(404)
-        .json({ success: false, message: "Purchase not found" });
+        .json({ success: false, message: "User or product not found" });
     }
 
-    // Update user's balance
-    const product = await ProductBuy.findOne({ Id: idProduct });
-    const user = await User.findOne({ _id: idUser });
+    // Check if user has sufficient balance
+    if (checkUser.Price >= checkProduct.Price) {
+      // Increment purchase count
+      const resPurchase = await ProductBuy.findOneAndUpdate(
+        { Id: idProduct },
+        { $inc: { Count: 1 } },
+        { new: true }
+      );
 
-    if (!product || !user) {
+      if (!resPurchase) {
+        return res
+          .status(404)
+          .json({ success: false, message: "Purchase not found" });
+      }
+
+      // Update user's balance
+      checkUser.Price -= checkProduct.Price;
+      await checkUser.save();
+
+      return res.status(200).json({
+        success: true,
+        message: "Purchase count incremented successfully",
+      });
+    } else {
       return res
-        .status(404)
-        .json({ success: false, message: "Product or user not found" });
+        .status(400)
+        .json({ success: false, message: "Insufficient balance" });
     }
-
-    user.balance += product.Price;
-    await user.save();
-
-    res.status(200).json({
-      success: true,
-      message: "Purchase count incremented successfully",
-      purchase,
-    });
   } catch (error) {
     console.error("Error in authPurchaseAdd:", error);
-    res.status(500).json({ success: false, message: "Internal server error" });
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
   }
 };
 
@@ -233,8 +232,32 @@ export const authPurchaseDelete = async (req, res) => {
     }
 
     // Delete the product
-    const resDel = await ProductBuy.deleteOne({ Id: idDelete, IdUser: id });
-    if (resDel.deletedCount > 0) {
+    const resDel = await ProductBuy.findOneAndDelete({
+      Id: idDelete,
+      IdUser: id,
+    });
+    if (resDel) {
+      if (resDel.Count > 1) {
+        // Find the user
+        const resUploadPrice = await User.findOne({ _id: id });
+        if (!resUploadPrice) {
+          // Return 400 if user not found
+          return res
+            .status(400)
+            .json({ success: false, message: "User Not Found" });
+        }
+
+        const resPriceUser = resDel.Count * resDel.Price;
+
+        // Update user's price
+        resUploadPrice.Price += resPriceUser;
+        await resUploadPrice.save();
+
+        // Return success message
+        return res
+          .status(200)
+          .json({ success: true, message: "Success Delete Product" });
+      }
       // Find the user
       const resUploadPrice = await User.findOne({ _id: id });
       if (!resUploadPrice) {
@@ -277,18 +300,18 @@ export const authPurchasePost = async (req, res) => {
 
 export const authBuy = async (req, res) => {
   try {
-    const { name } = req.dataAuto;
+    const { id } = req.dataAuto;
     const { price } = req.body;
 
     // Validate the request body
-    if (!price || !name) {
+    if (!price || !id) {
       return res
         .status(400)
         .json({ success: false, message: "Invalid request data" });
     }
 
     // Find the user by name
-    const user = await User.findOne({ Name: name });
+    const user = await User.findOne({ _id: id });
 
     // If user not found, return error
     if (!user) {
@@ -322,10 +345,10 @@ export const authBuy = async (req, res) => {
 
 export const authBuyProduct = async (req, res) => {
   try {
-    const { id, text, imgSrc, par, price, Count } = req.body;
-    const { name } = req.dataAuto;
+    const { id, text, imgSrc, par, price } = req.body;
+    const { id: idUser } = req.dataAuto;
 
-    const user = await User.findOne({ Name: name });
+    const user = await User.findOne({ _id: idUser });
     if (!user) {
       return res
         .status(404)
@@ -401,11 +424,16 @@ export const authUser = async (req, res) => {
 };
 
 export const authEditUser = async (req, res) => {
-  const { name: UserName } = req.dataAuto;
-
+  const { name: UserName, email: EmailUser } = req.dataAuto;
   try {
     const { name: newName, email: newEmail } = req.body;
 
+    if (newName === UserName || newEmail === EmailUser) {
+      return res.status(401).json({
+        success: false,
+        message: "This Name Or Email Is Already Exist",
+      });
+    }
     // Update user data
     const findUserAndUpdate = await User.findOneAndUpdate(
       { Name: UserName },
@@ -415,7 +443,6 @@ export const authEditUser = async (req, res) => {
       },
       { new: true }
     );
-
     if (findUserAndUpdate) {
       console.log("Success Update");
       return res.status(200).json({
@@ -439,9 +466,48 @@ export const authEditUser = async (req, res) => {
   }
 };
 
+export const authAbout = (req, res) => {
+  return res.status(200).json({ success: true, message: "About Page" });
+};
+
+export const authAboutPost = async (req, res) => {
+  const { report } = req.body;
+  const { id: idUser, name: NameUser } = req.dataAuto;
+
+  if (!report || typeof report !== "string" || report.trim() === "") {
+    return res.status(400).json({
+      success: false,
+      message: "Report message is required and must not be empty.",
+    });
+  }
+
+  try {
+    // Create a new report with the incoming data
+    const newReport = new ReportModel({
+      UserId: idUser,
+      UserName: NameUser,
+      Message: report.trim(), // Use trim to remove leading/trailing spaces
+    });
+
+    // Save the report in the database
+    await newReport.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Report submitted successfully!",
+    });
+  } catch (error) {
+    console.error("Error submitting report:", error);
+    return res.status(500).json({
+      success: false,
+      message: "An error occurred while submitting the report.",
+    });
+  }
+};
+
 export const authNavbar = async (req, res) => {
-  const { name } = req.dataAuto;
-  const foundName = await User.findOne({ Name: name });
+  const { id } = req.dataAuto;
+  const foundName = await User.findOne({ _id: id });
 
   return res
     .status(200)

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/editUser.css";
+import toast from "react-hot-toast";
 
 export const EditUser = () => {
   const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ export const EditUser = () => {
   useEffect(() => {
     async function fetchUser() {
       try {
-        const resData = await axios.get("/user");
+        const resData = await axios.get("/api/user");
 
         if (resData.status === 200) {
           const { Name, Email } = resData.data.dataFind;
@@ -43,7 +44,7 @@ export const EditUser = () => {
     e.preventDefault();
 
     try {
-      const resDataUpdate = await axios.put("/userEdit", {
+      const resDataUpdate = await axios.put("/api/userEdit", {
         name: formData.name,
         email: formData.email,
       });
@@ -51,7 +52,9 @@ export const EditUser = () => {
       if (resDataUpdate.status === 200) {
         console.log("Success Update");
         await axios.get("logout");
-        nav("/login");
+        nav("/api/login");
+      } else {
+        toast.error(resDataUpdate.data.message);
       }
       // After successful update, navigate back to the user page
     } catch (error) {
@@ -66,7 +69,7 @@ export const EditUser = () => {
 
   if (error) {
     return (
-      <div>
+      <div className="errorMsg">
         <p>{error}</p>
         <button onClick={() => window.location.reload()}>Retry</button>
       </div>

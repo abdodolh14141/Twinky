@@ -1,26 +1,48 @@
 import jwt from "jsonwebtoken";
 
+const { JWT_SECRET } = process.env;
+const TOKEN_MISSING_MESSAGE = "Bad Request: Token is missing";
+const TOKEN_INVALID_MESSAGE = "Unauthorized: Invalid or expired token";
+
 export const authenticateJWT = (req, res, next) => {
+  try {
+    // Extract token
+    const token = extractToken(req);
+
+    // Verify token
+    jwt.verify(token, JWT_SECRET, (err, decoded) => {
+      if (err) {
+        throw new Error(TOKEN_INVALID_MESSAGE);
+      }
+
+      // Attach decoded data to request object
+      req.dataAuto = decoded;
+      next();
+    });
+  } catch (error) {
+    // Handle errors
+    console.error("JWT Authentication Error:", error.message);
+    return res.status(error.status || 500).json({
+      success: false,
+      message: error.message || "Internal Server Error",
+    });
+  }
+};
+
+// Extract token from request
+const extractToken = (req) => {
   const token = req.cookies.token;
 
   if (!token) {
-    console.log("Token is missing");
-    return res.status(400).json({
-      success: false,
-      message: "Bad Request: Token is missing",
-    });
+    throw createError(400, TOKEN_MISSING_MESSAGE);
   }
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) {
-      console.log("JWT Verification Error:", err.message);
-      return res.status(401).json({
-        success: false,
-        message: "Unauthorized: Invalid or expired token",
-      });
-    }
+  return token;
+};
 
-    req.dataAuto = decoded;
-    next();
-  });
+// Create error object
+const createError = (status, message) => {
+  const error = new Error(message);
+  error.status = status;
+  return error;
 };

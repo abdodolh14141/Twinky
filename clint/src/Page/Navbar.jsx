@@ -16,20 +16,20 @@ export const Navbar = () => {
 
   async function funcLogout() {
     try {
-      const res = await axios.get("/logout");
+      const res = await axios.get("/api/logout");
       if (res.data.success) {
         setUser(false);
         toast.success(res.data.message);
       }
     } catch (error) {
       console.error("Logout failed:", error);
+      toast.error("Logout failed. Please try again.");
     }
   }
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // check if the user is logged in
         const res = await axios.get("/navbar");
         if (res.status === 200) {
           setUser(true);
@@ -38,37 +38,28 @@ export const Navbar = () => {
           setUser(false);
         }
       } catch (error) {
-        console.error("Error fetching user data:", error);
         setUser(false);
       }
     };
-
     fetchData();
-  }, []); // Added an empty dependency array to run the effect only once
+  }, []);
 
   return (
     <nav className="navbar">
       <ul className="ContainerIcon">
         <li>
-          <Link to="/shopping" className="icon-link iconShop">
+          <Link to="/api/shopping" title="تسوق" className="icon-link iconShop">
             <FontAwesomeIcon icon={faShoppingCart} />
           </Link>
         </li>
         <li>
-          <Link to="/api/buy/product">
+          <Link to="/api/buy/product" title="مشتريات">
             <FontAwesomeIcon icon={faShop} />
           </Link>
         </li>
-        {totalPrice > 0 ? (
-          <li>
-            <span>{totalPrice} $</span>
-          </li>
-        ) : (
-          <li>
-            <span>0 $</span>
-          </li>
-        )}
-
+        <li>
+          <span>{totalPrice.toFixed(2)} $</span>
+        </li>
         <li>
           <Link to={"/api/1"}>شرقي</Link>
         </li>
@@ -88,10 +79,9 @@ export const Navbar = () => {
       <ul className="nav-links">
         {user ? (
           <>
-            {/* If user is logged in, show the User link */}
             <li>
               <Link
-                to="/user"
+                to="/api/user"
                 className="icon-link iconUser"
                 style={{ display: user ? "block" : "none" }}
               >
@@ -105,13 +95,16 @@ export const Navbar = () => {
             </li>
           </>
         ) : (
-          // If user is not logged in, show the Sign In and Sign Up links
           <>
             <li>
-              <Link to="/login">Sign In</Link>
+              <Link to="/api/login" title="تسجيل الدخول">
+                Login In
+              </Link>
             </li>
             <li>
-              <Link to="/register">Sign Up</Link>
+              <Link to="/api/register" title="تسجيل">
+                Sign Up
+              </Link>
             </li>
           </>
         )}

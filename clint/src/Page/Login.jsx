@@ -18,19 +18,17 @@ export const Login = () => {
     const { email, password } = user;
     try {
       setLoading(true);
-      const response = await axios.post("/login", {
+      const response = await axios.post("/api/login", {
         email,
         password,
       });
 
-      const { error } = response.data;
-
-      if (error) {
-        toast.error(error); // Consistent error message handling
+      if (response.success === false) {
+        toast.error(response.data.message); // Consistent error message handling
       } else {
         setUser({ email: "", password: "" });
         toast.success("Login is successful");
-        nav("/shopping", { replace: true });
+        nav("/api/shopping", { replace: true });
       }
     } catch (error) {
       console.error("Error during login:", error);
@@ -63,7 +61,7 @@ export const Login = () => {
           <Link to={"/restPass"}>
             <p>Forgot Password?</p>
           </Link>
-          <Link to={"/register"}>
+          <Link to={"/api/register"}>
             <p>Don't Have an Account? Sign Up</p>
           </Link>
         </div>

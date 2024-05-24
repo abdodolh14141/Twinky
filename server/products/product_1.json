@@ -35,22 +35,61 @@
   },
   {
     "id": 6,
+    "text": "مشكل شرقي مكسرات",
+    "imgSrc": "https://elabd-ecommerce-production.azurewebsites.net/images/thumbs/0000669_-_550.png",
+    "par": ".طبق مشكل من الحلويات الشرقية بمذاق خاص وطعم شرقي أصيل لا يقارن",
+    "price": 465
+  },
+  {
+    "id": 7,
     "text": "بسوسه بندق",
     "imgSrc": "https://elabdfoods.com/images/thumbs/0000760_-_550.png",
     "par": ".بسبوسة البندق من توينكي هي الحلوى الشرقية المفضلة للجميع، مغطاة بالبندق الغنى بالطعم الرائع، والذي يضيف التناغم القوي بينه وبين البسبوسة",
     "price": 115
   },
   {
-    "id": 7,
+    "id": 8,
     "text": "بسبوسة بندق صيامى",
     "imgSrc": "https://elabdfoods.com/images/thumbs/0001175_-_550.png",
     "price": 115
   },
   {
-    "id": 8,
+    "id": 9,
     "text": "بلح الشام بالكريمة صغيرة",
     "par": "بلح الشام بالكريمة من توينكي له طعم خاص، بمكوناته المميزة من: الدقيق الفاخر، وكريمة توينكي السحرية، ليذوب بفمك من أول قضمة",
     "imgSrc": "https://elabdfoods.com/images/thumbs/0000747_-_550.png",
     "price": 110
+  },
+  {
+    "id": 10,
+    "text": "أرز باللبن بالبسبوسة",
+    "par": ".عالم الكريمة والحلويات الشرقية اللذيذة ميكملش من غير الأرز باللبن بالبسبوسة من العبد. جمعنا ليكم الحلو والأحلى مع الأرز باللبن والبسبوسة",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0000384_-_550.png",
+    "price": 50
+  },
+  {
+    "id": 11,
+    "text": "كنافه ديلايتس لوتس",
+    "imgSrc": "https://elabd-ecommerce-production.azurewebsites.net/images/thumbs/0000806_-_550.png",
+    "price": 45
+  },
+  {
+    "id": 12,
+    "text": "بروفيترول",
+    "par": "بروفيترول العبد، بمكوناته الخفيفة من الدقيق والسمن والسكر والفانيليا والكاكاو يمنح العجينة قوام كريمي مميز لا يقاوم",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0000703_550.png",
+    "price": 70
+  },
+  {
+    "id": 13,
+    "text": "بسبوسة فورسيزون",
+    "imgSrc": "https://elabd-ecommerce-production.azurewebsites.net/images/thumbs/0000847_-_550.png",
+    "price": 275
+  },
+  {
+    "id": 14,
+    "text": "بوله عثمانلية مانجو",
+    "imgSrc": "https://elabdfoods.com/images/thumbs/0000842_-_550.png",
+    "price": 380
   }
 ]

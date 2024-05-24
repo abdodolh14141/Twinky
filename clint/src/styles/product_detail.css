@@ -1,12 +1,12 @@
 .product-details {
   display: flex;
-  justify-content: center; /* Horizontal centering */
+  justify-content: space-around; /* Horizontal centering */
   align-items: center; /* Vertical centering */
   text-align: center;
   padding: 20px;
   width: 70%;
   background-color: rgba(243, 243, 243, 0.7);
-  margin: 20px auto;
+  margin: 10px auto;
   border-radius: 1rem;
   box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease-in-out;
@@ -48,7 +48,7 @@
   margin-right: 20px; /* Add margin to create space between image and text */
 }
 
-button {
+.textProduct button {
   font-size: 1.2rem;
   border: none;
   width: 80%;

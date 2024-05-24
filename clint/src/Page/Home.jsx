@@ -66,7 +66,7 @@ export const Home = () => {
               ></span>
             ))}
             <div className="btnShop">
-              <button onClick={() => nav("/shopping")}>تسوق الان</button>
+              <button onClick={() => nav("/api/shopping")}>تسوق الان</button>
             </div>
           </div>
         </div>
@@ -78,6 +78,14 @@ export const Home = () => {
           <button onClick={() => nav("/api/4")}>تسوق الان</button>
         </div>
         <img src={twinky_middle} alt="صور عرض مشروبات ساخنة" />
+      </div>{" "}
+      <hr />
+      <div className="lastHome">
+        <div className="textLastHome">
+          <h1>توينكي يتمني لكم شم نسيم سعيد وكل عام وأنتم بخير </h1>
+          <button onClick={() => nav("/api/3")}>نسوق الان</button>
+        </div>
+        <img src="https://scontent.fcai19-3.fna.fbcdn.net/v/t39.30808-6/438161807_783867450571893_5741639721578831437_n.jpg?stp=dst-jpg_p526x296&_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE4XKmKBWmNDEfSAulliGerbi7S7DAo4aluLtLsMCjhqfu8l72RmPT6PVzBgFnY9GebnoOmX-riFLYHhcsmMI9v&_nc_ohc=HzRF35dVY6sQ7kNvgH2B4m6&_nc_ht=scontent.fcai19-3.fna&cb_e2o_trans=q&oh=00_AfCNKxEl2ThChQHhaz8hX50aTjv2N8loWQ_iIXOgX_Lj-g&oe=66426492" />
       </div>
     </>
   );

@@ -16,7 +16,9 @@ import {
   authPurchase,
   authPurchaseDelete,
   authPurchaseAdd,
+  authAbout,
   authPurchasePost,
+  authAboutPost,
   products,
 } from "../auths/auth.js";
 import { authenticateJWT } from "../jwtAuto/autoMation.js";
@@ -42,22 +44,27 @@ route.get("/", (req, res) => {
   res.json({ success: true, message: "Home Page" });
 });
 
+// Abou Page Route
+route.get("/api/about", authAbout);
+
+route.post("/api/about/Report", authenticateJWT, authAboutPost);
+
 // Authentication Routes
-route.post("/register", authRegister);
-route.post("/login", authLogin);
+route.post("/api/register", authRegister);
+route.post("/api/login", authLogin);
 route.get("/navbar", authenticateJWT, authNavbar);
-route.get("/logout", (req, res) => {
+route.get("/api/logout", (req, res) => {
   res.clearCookie("token");
   return res.json({ success: true, message: "Success Logout" });
 });
 
 // User Routes
-route.get("/user", authenticateJWT, authUser);
-route.put("/userEdit", authenticateJWT, authEditUser);
-route.put("/buy", authenticateJWT, authBuy);
+route.get("/api/user", authenticateJWT, authUser);
+route.put("/api/userEdit", authenticateJWT, authEditUser);
+route.put("/api/buy", authenticateJWT, authBuy);
 
 // Shopping Routes
-route.get("/shopping", (req, res) => {
+route.get("/api/shopping", (req, res) => {
   const shuffledProducts = shuffleArray(products);
   return res.json(shuffledProducts);
 });

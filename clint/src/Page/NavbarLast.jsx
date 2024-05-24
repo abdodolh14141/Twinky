@@ -1,6 +1,4 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 import "../styles/navbarLast.css";
 
@@ -9,20 +7,39 @@ export const NavbarLast = () => {
     <>
       <div className="LastContainer">
         <div className="LinksSocial">
-          <a href="https://www.instagram.com/just_dolh/" target="_blank">
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a
-            href="https://mail.google.com/mail/u/0/?pli=1#inbox"
-            target="_blank"
-          >
-            <FontAwesomeIcon icon={faGoogle} />
-          </a>
+          <ul class="wrapper">
+            <li class="icon facebook">
+              <span>
+                <Link
+                  to={"https://www.facebook.com/profile.php?id=100090162679609"}
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </Link>
+              </span>
+            </li>
+            <li class="icon youtube">
+              <span>
+                <i class="fab fa-youtube"></i>
+              </span>
+            </li>
+            <li class="icon tiktok">
+              <span>
+                <i class="fab fa-tiktok"></i>
+              </span>
+            </li>
+            <li class="icon instagram">
+              <span>
+                <Link to={"https://www.instagram.com/just_dolh/"}>
+                  <i class="fab fa-instagram"></i>
+                </Link>
+              </span>
+            </li>
+          </ul>
         </div>
         <div className="par">
           <h1>Phone: 15248</h1>
           <p>
-            This Website Is Orignial <Link to={"/about"}>About Us</Link>
+            This Website Is Orignial <Link to={"/api/about"}>About Us</Link>
           </p>
         </div>
       </div>
