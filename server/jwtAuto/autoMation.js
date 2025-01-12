@@ -20,8 +20,6 @@ export const authenticateJWT = (req, res, next) => {
       next();
     });
   } catch (error) {
-    // Handle errors
-    console.error("JWT Authentication Error:", error.message);
     return res.status(error.status || 500).json({
       success: false,
       message: error.message || "Internal Server Error",

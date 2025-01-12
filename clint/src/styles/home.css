@@ -1,78 +1,79 @@
+/* Body Container */
 .bodyHome {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: transparent; /* Light background for better contrast */
+  height: 100vh;
+  box-sizing: border-box;
 }
 
-/* Style for the container of the image slider */
+/* Image Slider Container */
 .img_Switch_Home {
-  max-width: 100%;
-  max-height: 80%;
-  margin: auto;
+  max-width: 80%;
+  width: 80%;
+  margin: 2px auto;
   position: relative;
   overflow: hidden;
   border-radius: 1rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  display: flex;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  background-color: transparent; /* Ensure a clear white background */
 }
 
-.lastHome {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  border: 0.5px solid black;
-  padding: 10px;
-  margin: 10px auto;
-  border-radius: 1rem;
-  max-width: 80%;
-  max-height: 700px;
-  background-color: rgba(128, 144, 160, 0.6);
-}
-
-.textLastHome {
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: auto 5rem;
-}
-
-.lastHome button {
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  background-color: #4caf50; /* Green */
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 1rem;
-  transition: background-color 0.3s ease;
-  text-align: center;
-  margin: 13rem auto;
-}
-
-.lastHome img {
-  width: 50%;
-}
-
-.lastHome h1 {
-  margin: 15rem auto;
-}
-
+/* Individual Slide Styling */
 .mySlides {
   display: none;
-  animation: fade 1.5s ease-in-out infinite;
-  width: 650px;
-  height: 450px;
-  padding: 10px;
-  margin: 10px;
+  animation: fade 1.5s ease-in-out;
+  max-width: 60%;
+  margin: 0 auto;
+  border-radius: 1rem;
 }
 
 .mySlides.active {
   display: block;
 }
 
+/* Image Styling */
+.imgAuto {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures image covers the container while maintaining aspect ratio */
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Slide Number Text */
+.numbertext {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #ffffff; /* White text for contrast */
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background for readability */
+  border-radius: 0.5rem;
+}
+
+/* Caption Text */
+.text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  color: #ffffff; /* White text for better contrast */
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6); /* Darker background for readability */
+  border-radius: 0 0 1rem 1rem;
+}
+
+/* Dot Navigation */
 .dot-container {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .dot {
@@ -87,21 +88,10 @@
 }
 
 .dot.active {
-  background-color: #717171;
+  background-color: #333333; /* Darker color for active dot */
 }
 
-.text {
-  color: #fff;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  text-align: center;
-}
-
+/* Fade Animation */
 @keyframes fade {
   from {
     opacity: 0.4;
@@ -111,84 +101,128 @@
   }
 }
 
-/* Increase the font size for headings */
-h1 {
-  font-size: 2rem;
+/* Middle Section Styling */
+.middleHome {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(128, 144, 160, 0.9); /* Slightly darker background */
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Common styles for header and link components */
-.headerLink,
-a {
-  text-decoration: none;
-}
-
-/* Header.css */
-.headerLink {
-  background-color: #20b2aa; /* Light Sea Green */
-  padding: 1rem;
-  margin: 1rem;
-  border-radius: 1.2rem;
-}
-
-/* Style for the "تسوق الان" button */
-.btnShop {
+/* Text Styling for Middle Section */
+.textMiddleHome {
+  flex: 1;
   text-align: center;
-  margin-top: 20px;
+  margin: 20px;
 }
 
-.btnShop button {
+.middleHome h1 {
+  font-size: 1.8rem;
+  color: #333333; /* Darker text color */
+}
+
+.middleHome button {
   padding: 15px 30px;
   font-size: 1.2rem;
-  background-color: #4caf50; /* Green */
-  color: #fff;
+  background-color: #4caf50; /* Green background */
+  color: #ffffff; /* Ensure white text */
   border: none;
   cursor: pointer;
   border-radius: 1rem;
   transition: background-color 0.3s ease;
-  text-align: center;
-  margin: 13rem auto;
 }
 
-.btnShop button:hover {
-  background-color: #45a049;
-}
-
-.middleHome {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  border: 0.5px solid black;
-  padding: 10px;
-  margin: 10px auto;
+.middleHome Link {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background-color: #4caf50; /* Green background */
+  color: #ffffff; /* Ensure white text */
+  border: none;
+  cursor: pointer;
   border-radius: 1rem;
-  max-width: 80%;
-  max-height: 700px;
-  background-color: rgba(128, 144, 160, 0.6);
+  transition: background-color 0.3s ease;
 }
 
-@media screen and (max-width: 768px) {
-  .middleHome {
-    width: 75%; /* Smaller width for smaller screens */
-    max-width: 500px; /* Maximum width for smaller screens */
-  }
+.middleHome button:hover {
+  background-color: #388e3c; /* Darker green on hover */
 }
 
-.textMiddleHome {
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: auto 5rem;
-}
-
-.textMiddleHome button {
-  width: 50%;
-  font-size: 1.5rem;
-}
-
+/* Image Styling for Middle Section */
 .middleHome img {
-  width: 450px;
   flex: 1;
-  margin: 10px;
+  width: 60%;
+  max-width: 500px;
   border-radius: 1rem;
+  margin-top: 20px;
+}
+
+/* Last Section Styling */
+.lastHome {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(128, 144, 160, 0.9); /* Slightly darker background */
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Text Styling for Last Section */
+.textLastHome {
+  flex: 1;
+  text-align: center;
+  margin: 20px;
+}
+
+.lastHome h1 {
+  font-size: 1.8rem;
+  color: #333333; /* Darker text color */
+}
+
+.lastHome button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background-color: #4caf50; /* Green background */
+  color: #ffffff; /* Ensure white text */
+  border: none;
+  cursor: pointer;
+  border-radius: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.lastHome button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+}
+
+/* Image Styling for Last Section */
+.lastHome img {
+  flex: 1;
+  width: 60%;
+  max-width: 500px;
+  border-radius: 1rem;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .middleHome,
+  .lastHome {
+    flex-direction: column;
+    max-width: 90%;
+  }
+
+  .middleHome img,
+  .lastHome img {
+    width: 80%;
+    margin-top: 20px;
+  }
 }

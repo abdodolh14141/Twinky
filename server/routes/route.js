@@ -61,7 +61,7 @@ route.get("/api/logout", (req, res) => {
 // User Routes
 route.get("/api/user", authenticateJWT, authUser);
 route.put("/api/userEdit", authenticateJWT, authEditUser);
-route.put("/api/buy", authenticateJWT, authBuy);
+route.post("/api/buy", authenticateJWT, authBuy);
 
 // Shopping Routes
 route.get("/api/shopping", (req, res) => {

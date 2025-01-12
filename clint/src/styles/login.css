@@ -34,6 +34,21 @@
   box-shadow: 5px 5px 5px red;
 }
 
+.containerLogin button {
+  font-size: 1.8rem;
+  border-radius: 1rem;
+  padding: 5px;
+  margin: 5px;
+  background-color: black;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.containerLogin button:hover {
+  background-color: #333;
+  transform: scale(1.1);
+}
+
 .containerLogin input {
   padding: 10px;
   border: 1px solid #ccc;

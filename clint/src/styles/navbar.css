@@ -1,75 +1,124 @@
-.ContainerIcon {
+/* Navbar Container Styles */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  list-style-type: none;
-  margin: 19px 2px;
-  padding: 8px;
-  font-size: 1.2rem;
+  padding: 2px;
+  background-color: #2c3e50; /* Dark blue for the navbar background */
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin: 3px;
+}
+
+/* ContainerIcon Styles */
+.ContainerIcon {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between items */
 }
 
 .ContainerIcon li {
-  margin: 0 8px;
-}
-
-.navbar .logo {
-  color: maroon; /* White */
-  font-size: 1.8rem; /* Slightly larger font for the logo */
-  margin: 0 auto;
-  font-weight: 800;
-}
-
-.navbar .nav-links {
   list-style: none;
-  display: flex;
-  gap: 1.5rem; /* Space between the navigation links */
-  font-size: 1.3rem;
-  margin: 1px;
+  font-size: 1.2rem;
 }
 
-.navbar .icon-link:hover {
+.links {
+  color: whitesmoke;
+}
+
+.links:hover {
   color: green;
-  transform: scale(1.3);
 }
 
-.navbar .nav-links li {
-  margin-right: 0;
-}
-
-.navbar {
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px;
-  background-color: rgba(233, 135, 135, 0.5); /* Light Sky Blue */
-  border-radius: 1rem;
-}
-
-.btnLogout {
-  font-size: 1.2rem;
-  padding: 10px;
-  margin: 0.8rem auto;
-  border: none;
-  border-radius: 1rem;
-  background-color: rgb(250, 116, 116);
-}
-
-.navbar:hover {
-  background-color: tomato;
-}
-
-.iconUser {
+.ContainerIcon .icon-link {
   text-decoration: none;
-  font-size: 1.2rem;
-  margin: 1.1rem auto;
-  border: 1px solid black;
-  border-radius: 1rem;
-  padding: 5px;
-  background-color: chartreuse;
-  color: red;
+  color: #ecf0f1; /* Light gray color */
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-ul {
-  list-style-type: none;
+.ContainerIcon .icon-link:hover {
+  color: #e74c3c; /* Hover effect color */
+}
+
+/* Logo Styles */
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #e74c3c; /* Brand color for logo */
+  text-decoration: none;
+}
+
+/* Navigation Links Styles */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+li a {
+  text-decoration: none;
+}
+
+.nav-links {
+  text-decoration: none;
+  color: #ecf0f1; /* Light gray color for links */
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links:hover {
+  color: #e74c3c; /* Hover color for nav links */
+}
+
+/* Button Styles */
+.btnLogout {
+  font-size: 1rem;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #e74c3c; /* Red for the button background */
+  color: #fff; /* White text */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btnLogout:hover {
+  background-color: #c0392b; /* Darker red on hover */
+  transform: translateY(-2px); /* Subtle lift effect on hover */
+}
+
+/* User Icon Styles */
+.iconUser {
+  display: inline-block;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border: 1px solid #34495e; /* Darker blue border */
+  border-radius: 50%; /* Circular icon */
+  background-color: #1abc9c; /* Teal background */
+  color: #fff; /* White color for the icon */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.iconUser:hover {
+  background-color: #16a085; /* Slightly darker teal on hover */
+  color: #ecf0f1; /* Light gray on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
 }

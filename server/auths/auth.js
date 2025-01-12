@@ -24,7 +24,7 @@ export const products = [
 ];
 
 export const authRegister = async (req, res) => {
-  const { Name: UserName, Email: EmailUser, Age: AgeUser, Password } = req.body;
+  const { UserName: Name, Email: EmailUser, Age: AgeUser, Password } = req.body;
 
   try {
     const existingUserByEmail = await User.findOne({ Email: EmailUser });
@@ -38,7 +38,7 @@ export const authRegister = async (req, res) => {
     const hashedPassword = await bcrypt.hash(Password, 10);
 
     const newUser = new User({
-      Name: UserName,
+      UserName: Name,
       Email: EmailUser,
       Age: AgeUser,
       Password: hashedPassword,
@@ -84,7 +84,7 @@ export const authLogin = async (req, res) => {
             {
               id: checkUser._id,
               email: checkUser.Email,
-              name: checkUser.Name,
+              name: checkUser.UserName,
               price: checkUser.Price,
             },
             process.env.JWT_SECRET,
@@ -303,35 +303,29 @@ export const authBuy = async (req, res) => {
     const { id } = req.dataAuto;
     const { price } = req.body;
 
-    // Validate the request body
     if (!price || !id) {
       return res
         .status(400)
         .json({ success: false, message: "Invalid request data" });
     }
 
-    // Find the user by name
     const user = await User.findOne({ _id: id });
 
-    // If user not found, return error
     if (!user) {
       return res
         .status(404)
         .json({ success: false, message: "User not found" });
     }
 
-    // Check if user has sufficient balance
     if (user.Price < price) {
       return res
         .status(400)
         .json({ success: false, message: "Insufficient balance" });
     }
 
-    // Subtract price from user's balance and save
     user.Price -= price;
     await user.save();
 
-    // Return the updated user
     return res
       .status(200)
       .json({ success: true, message: "Price updated successfully", user });
@@ -424,37 +418,44 @@ export const authUser = async (req, res) => {
 };
 
 export const authEditUser = async (req, res) => {
-  const { name: UserName, email: EmailUser } = req.dataAuto;
   try {
+    // Extract the new name and email from the request body
     const { name: newName, email: newEmail } = req.body;
+    const { name: UserAuto } = req.dataAuto;
+    // Check if the new name or email already exists in a different user
+    const existingUser = await User.findOne(
+      { Name: newName, Email: newEmail } // Ensure it's not the same user
+    );
 
-    if (newName === UserName || newEmail === EmailUser) {
-      return res.status(401).json({
+    if (existingUser) {
+      return res.status(409).json({
         success: false,
-        message: "This Name Or Email Is Already Exist",
+        message: "This Name or Email is already in use by another user.",
       });
     }
-    // Update user data
-    const findUserAndUpdate = await User.findOneAndUpdate(
-      { Name: UserName },
+
+    // Update the user data if no existing user with the same name or email
+    const updatedUser = await User.findOneAndUpdate(
+      { Name: UserAuto },
       {
         Name: newName,
         Email: newEmail,
       },
       { new: true }
     );
-    if (findUserAndUpdate) {
-      console.log("Success Update");
+
+    if (updatedUser) {
+      console.log("User updated successfully");
       return res.status(200).json({
         success: true,
         message: "User updated successfully",
-        data: findUserAndUpdate,
+        data: updatedUser,
       });
     } else {
       console.log("Failed to update user");
-      return res.status(500).json({
+      return res.status(404).json({
         success: false,
-        message: "Failed to update user",
+        message: "User not found",
       });
     }
   } catch (error) {

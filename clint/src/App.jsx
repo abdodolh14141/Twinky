@@ -1,22 +1,20 @@
 import axios from "axios";
-import "./index.css";
 import { Routes, Route } from "react-router-dom";
-import { Register } from "./Page/Register";
-import { Login } from "./Page/Login";
-import { Home } from "./Page/Home";
+import { Register } from "./Page/Users/Register";
+import { Login } from "./Page/Users/Login";
+import { Home } from "./Page/Compones/Home";
 import { Toaster } from "react-hot-toast";
-import { Navbar } from "./Page/Navbar";
-import { NavbarLast } from "./Page/NavbarLast";
-import { Shop } from "./Page/Shop";
-import { ProductDetails } from "./Page/ProductDetails";
-import { User } from "./Page/User";
-import { Purchases } from "./Page/Purchases";
+import { Navbar } from "./Page/Compones/Navbar";
+import { NavbarLast } from "./Page/Compones/NavbarLast";
+import { Shop } from "./Page/Compones/Shop";
+import { ProductDetails } from "./Page/Compones/ProductDetails";
+import { User } from "./Page/Users/User";
+import { Purchases } from "./Page/Compones/Purchases";
 import { Specialty } from "./Page/Specialty/Specialty_1";
 import { Specialty_1 } from "./Page/Specialty/Specialty_2";
 import { Specialty_2 } from "./Page/Specialty/Specialty_3";
 import { Specialty_3 } from "./Page/Specialty/Specialty_4";
-import { About } from "./Page/About";
-import { EditUser } from "./Page/EditUser";
+import { About } from "./Page/Compones/About";
 
 // Set axios defaults outside the component
 try {
@@ -42,7 +40,6 @@ function App() {
         <Route path="/api/2" element={<Specialty_1 />} />
         <Route path="/api/3" element={<Specialty_2 />} />
         <Route path="/api/4" element={<Specialty_3 />} />
-        <Route path="/api/userEdit" element={<EditUser />} />
         <Route path="/api/about" element={<About />} />
         <Route path="/api/buy/product" element={<Purchases />} />
       </Routes>
