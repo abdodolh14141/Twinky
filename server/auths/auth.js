@@ -24,7 +24,7 @@ export const products = [
 ];
 
 export const authRegister = async (req, res) => {
-  const { UserName: Name, Email: EmailUser, Age: AgeUser, Password } = req.body;
+  const { Name, Email: EmailUser, Age: AgeUser, Password } = req.body;
 
   try {
     const existingUserByEmail = await User.findOne({ Email: EmailUser });

@@ -84,7 +84,9 @@ export const Home = () => {
           <h1>
             فطيرة مشلتته مع شويه عسل وطحينة ! هي دي الوجبة المثالية للرايقين{" "}
           </h1>
-          <Link to={"/api/3"}>تسوق الان</Link>
+          <button>
+            <Link to={"/api/3"}>تسوق الان</Link>
+          </button>
         </div>
         <img src={twinky_9} alt="فطيرة مشلتت" />
       </div>

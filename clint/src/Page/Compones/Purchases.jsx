@@ -90,10 +90,10 @@ export const Purchases = () => {
             <img src={ImgSrc} alt={Text} className="product-image" />
             <p>Count: {Count}</p>
             <span className="spanProduct">Price: {Price}</span>
-            <button onClick={() => nav(`/product/${Id}`)}>Show</button>
+            <button onClick={() => nav(`/product/${Id}`)}>عرض</button>
 
-            <button onClick={() => deletePurchases(Id)}>Delete</button>
-            <button onClick={() => addPurchases(Id)}>Add</button>
+            <button onClick={() => deletePurchases(Id)}>حذف</button>
+            <button onClick={() => addPurchases(Id)}>اضافة</button>
           </div>
         ))}
       </div>

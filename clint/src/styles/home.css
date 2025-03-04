@@ -3,30 +3,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  background-color: transparent; /* Light background for better contrast */
-  height: 100vh;
+  padding: 10px;
+  background-color: transparent;
+  min-height: 100vh;
   box-sizing: border-box;
 }
 
 /* Image Slider Container */
 .img_Switch_Home {
-  max-width: 80%;
-  width: 80%;
+  width: 40%;
   margin: 2px auto;
-  position: relative;
   overflow: hidden;
   border-radius: 1rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  padding: 1rem;
-  background-color: transparent; /* Ensure a clear white background */
+  padding: 10px;
+  background-color: transparent;
 }
 
 /* Individual Slide Styling */
 .mySlides {
   display: none;
   animation: fade 1.5s ease-in-out;
-  max-width: 60%;
+  max-width: 100%;
   margin: 0 auto;
   border-radius: 1rem;
 }
@@ -39,7 +37,7 @@
 .imgAuto {
   width: 100%;
   height: auto;
-  object-fit: cover; /* Ensures image covers the container while maintaining aspect ratio */
+  object-fit: cover;
   border-radius: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -51,8 +49,8 @@
   left: 10px;
   padding: 8px 12px;
   font-size: 14px;
-  color: #ffffff; /* White text for contrast */
-  background-color: rgba(0, 0, 0, 0.5); /* Dark background for readability */
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0.5rem;
 }
 
@@ -61,25 +59,25 @@
   position: absolute;
   bottom: 0;
   left: 0;
+  padding: 10px;
   width: 100%;
-  padding: 12px;
   font-size: 16px;
-  color: #ffffff; /* White text for better contrast */
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.6); /* Darker background for readability */
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0 0 1rem 1rem;
 }
 
 /* Dot Navigation */
 .dot-container {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .dot {
   height: 15px;
   width: 15px;
-  margin: 0 5px;
+  margin: 5px 10px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
@@ -88,7 +86,7 @@
 }
 
 .dot.active {
-  background-color: #333333; /* Darker color for active dot */
+  background-color: #333333;
 }
 
 /* Fade Animation */
@@ -101,68 +99,8 @@
   }
 }
 
-/* Middle Section Styling */
-.middleHome {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 80%;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: rgba(128, 144, 160, 0.9); /* Slightly darker background */
-  border-radius: 1rem;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Text Styling for Middle Section */
-.textMiddleHome {
-  flex: 1;
-  text-align: center;
-  margin: 20px;
-}
-
-.middleHome h1 {
-  font-size: 1.8rem;
-  color: #333333; /* Darker text color */
-}
-
-.middleHome button {
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  background-color: #4caf50; /* Green background */
-  color: #ffffff; /* Ensure white text */
-  border: none;
-  cursor: pointer;
-  border-radius: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.middleHome Link {
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  background-color: #4caf50; /* Green background */
-  color: #ffffff; /* Ensure white text */
-  border: none;
-  cursor: pointer;
-  border-radius: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.middleHome button:hover {
-  background-color: #388e3c; /* Darker green on hover */
-}
-
-/* Image Styling for Middle Section */
-.middleHome img {
-  flex: 1;
-  width: 60%;
-  max-width: 500px;
-  border-radius: 1rem;
-  margin-top: 20px;
-}
-
-/* Last Section Styling */
+/* Common Section Styling */
+.middleHome,
 .lastHome {
   display: flex;
   flex-direction: row;
@@ -171,39 +109,44 @@
   max-width: 80%;
   margin: 20px auto;
   padding: 20px;
-  background-color: rgba(128, 144, 160, 0.9); /* Slightly darker background */
+  background-color: rgba(128, 144, 160, 0.9);
   border-radius: 1rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Text Styling for Last Section */
+/* Text Styling for Sections */
+.textMiddleHome,
 .textLastHome {
   flex: 1;
   text-align: center;
   margin: 20px;
 }
 
+.middleHome h1,
 .lastHome h1 {
   font-size: 1.8rem;
-  color: #333333; /* Darker text color */
+  color: #333333;
 }
 
+.middleHome button,
 .lastHome button {
   padding: 15px 30px;
   font-size: 1.2rem;
-  background-color: #4caf50; /* Green background */
-  color: #ffffff; /* Ensure white text */
+  background-color: #4caf50;
+  color: #ffffff;
   border: none;
   cursor: pointer;
   border-radius: 1rem;
   transition: background-color 0.3s ease;
 }
 
+.middleHome button:hover,
 .lastHome button:hover {
-  background-color: #388e3c; /* Darker green on hover */
+  background-color: #388e3c;
 }
 
-/* Image Styling for Last Section */
+/* Image Styling for Sections */
+.middleHome img,
 .lastHome img {
   flex: 1;
   width: 60%;
@@ -214,6 +157,10 @@
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
+  .img_Switch_Home {
+    width: 90%;
+  }
+
   .middleHome,
   .lastHome {
     flex-direction: column;
@@ -224,5 +171,18 @@
   .lastHome img {
     width: 80%;
     margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .middleHome h1,
+  .lastHome h1 {
+    font-size: 1.5rem;
+  }
+
+  .middleHome button,
+  .lastHome button {
+    padding: 10px 20px;
+    font-size: 1rem;
   }
 }
